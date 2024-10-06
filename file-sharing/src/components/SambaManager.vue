@@ -20,12 +20,6 @@ If not, see <https://www.gnu.org/licenses/>.
 		class="centered-column p-well space-y-well"
 		:class="{ 'cursor-wait': processing }"
 	>
-		<SambaGlobalManagement
-			:globalConfig="globalConfig"
-			:processing="processing"
-			@startProcessing="processing++"
-			@stopProcessing="processing--"
-		/>
 		<SambaShareManagement
 			:shares="shares"
 			@refreshShares="refresh"
@@ -100,7 +94,6 @@ If not, see <https://www.gnu.org/licenses/>.
 <script>
 import { XCircleIcon, ExclamationCircleIcon } from "@heroicons/vue/solid";
 import SambaShareManagement from "./SambaShareManagement.vue";
-import SambaGlobalManagement from "./SambaGlobalManagement.vue";
 import { useSpawn, errorString, errorStringHTML, processOutputDownload } from "@45drives/cockpit-helpers";
 import { ref, reactive, watch, inject, onBeforeUnmount } from "vue";
 import LoadingSpinner from "./LoadingSpinner.vue";
@@ -438,7 +431,6 @@ export default {
 	},
 	components: {
 		SambaShareManagement,
-		SambaGlobalManagement,
 		XCircleIcon,
 		LoadingSpinner,
 		ModalPopup,
